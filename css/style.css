@@ -1,0 +1,29 @@
+:root {
+  --primary-color: #000;
+}
+
+body {
+  background-color: var(--primary-color);
+}
+
+
+.bnr_wrap {
+  background-image: url(../images/bg-image.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+.bnr_wrap .bnr_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
+
+.bnr_content h1 {
+  font-size: 64px;
+  font-weight: 600;
+  line-height: 150%;
+}
