@@ -204,6 +204,7 @@ body {
     background-color: var(--pattrn-color);
     filter: blur(50px);
     position: absolute;
+    transition: all .3s ease-in;
 }
 
 .particle_wrap_1 {
