@@ -110,16 +110,6 @@ input[type=number] {
     width: 100%;
 }
 
-::-moz-selection {
-    background-color: #000;
-    color: #fff;
-}
-
-::selection {
-    background-color: #000;
-    color: #fff;
-}
-
 .form-control:focus {
     box-shadow: 0 0 0 0.2rem rgb(0 157 233 / 25%);
 }
@@ -146,6 +136,17 @@ a:hover {
 :root {
     --primary-color: #608AF5;
     --secondary-color: #002265;
+    --pattrn-color: #0E85F3;
+}
+
+::-moz-selection {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+::selection {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 ::-webkit-scrollbar {
@@ -194,4 +195,24 @@ body {
 .bnr_content p {
     font-size: 1.3rem;
     max-width: 600px;
+}
+
+.particle_wrap {
+    width: 70px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: var(--pattrn-color);
+    filter: blur(50px);
+    position: absolute;
+}
+
+.particle_wrap_1 {
+    top: 0;
+    left: 130px;
+}
+
+.particle_wrap_2 {
+    left: 30%;
+    bottom: 0;
+    transform: scale(.5);
 }
