@@ -178,9 +178,10 @@ body {
 
 .solid_btn {
     font-size: 1.2rem;
+    letter-spacing: 1px;
     font-weight: 600;
     padding: 10px 18px;
-    border-radius: 10px;
+    border-radius: 8px;
     background-color: var(--primary-color);
     color: #fff;
 }
