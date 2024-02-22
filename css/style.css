@@ -207,6 +207,30 @@ body {
     font-weight: 400;
 }
 
+.navbar-toggler span {
+    height: 3px;
+    width: 26px;
+    background: var(--primary-color);
+    border-radius: 5px;
+    margin: 6px 0;
+    transform-origin: left;
+    transition: all 0.5s;
+    display: block;
+}
+
+.navbar-toggler[aria-expanded="true"].navbar-toggler .bar-top {
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"].navbar-toggler .bar-middle {
+    opacity: 0;
+    transform: translateX(1rem);
+}
+
+.navbar-toggler[aria-expanded="true"].navbar-toggler .bar-bottom {
+    transform: rotate(-45deg);
+}
+
 .bnr_content h1 {
     font-size: 3rem;
     font-weight: 600;
