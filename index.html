@@ -14,6 +14,15 @@
 </head>
 
 <body>
+    <!-- Start Preloader Section -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="shadow"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <!-- End Preloader Section -->
+
     <header>
         <nav class="navbar navbar-expand-lg py-4">
             <div class="container">
@@ -54,7 +63,7 @@
                         </div>
                     </div>
                     <div class="col text-center mt-5 mt-lg-0 wow animate__flipInX" data-wow-delay=".3s">
-                        <div class="hero_wrap">
+                        <div class="hero_wrap tilt tilt-movie" data-tilt data-tilt-glare="true" data-tilt-scale="1.1">
                             <img class="w-100" src="./images/hero_img.svg" alt="hero-img" loading="lazy">
                         </div>
                     </div>
@@ -71,6 +80,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"
         integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/tilt.js@1.1.21/dest/tilt.jquery.min.js"></script>
     <script>
         wow = new WOW(
             {
@@ -82,6 +92,10 @@
             }
         )
         wow.init();
+
+        $(window).on('load', function () {
+            $('.preloader').addClass('preloader-deactivate');
+        });
     </script>
 </body>
 
