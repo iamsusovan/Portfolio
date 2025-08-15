@@ -8,6 +8,57 @@
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app" class="min-h-screen bg-red-600"></div>
+    <body class="tw:bg-gray-900 tw:text-white tw:font-sans">
+  <!-- Hero Section -->
+  <section class="tw:min-h-screen tw:flex tw:flex-col tw:justify-center tw:items-center tw:text-center tw:p-8">
+    <h1 class="tw:text-5xl tw:font-bold tw:mb-4">Hi, I'm Susovan</h1>
+    <p class="tw:text-lg tw:max-w-xl tw:text-gray-400">
+      UI/UX Developer crafting intuitive, user-focused digital experiences.
+    </p>
+    <div class="tw:mt-6">
+      <a href="#projects" class="tw:bg-blue-500 tw:text-white tw:px-6 tw:py-3 tw:rounded-lg tw:mr-4 hover:tw:bg-blue-600">View Work</a>
+      <a href="#contact" class="tw:border tw:border-white tw:px-6 tw:py-3 tw:rounded-lg hover:tw:bg-white hover:tw:text-gray-900">Contact</a>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="tw:py-20 tw:px-8">
+    <h2 class="tw:text-3xl tw:font-semibold tw:text-center tw:mb-12">Selected Projects</h2>
+    <div class="tw:grid tw:grid-cols-1 md:tw:grid-cols-2 lg:tw:grid-cols-3 tw:gap-8">
+      <!-- Project Card -->
+      <div class="tw:bg-gray-800 tw:rounded-xl tw:p-6 tw:shadow-lg hover:tw:scale-105 tw:transition-transform">
+        <img src="project1.jpg" alt="Project" class="tw:rounded-lg tw:mb-4">
+        <h3 class="tw:text-xl tw:font-bold">Project Name</h3>
+        <p class="tw:text-gray-400 tw:mt-2">Short project description and your role.</p>
+      </div>
+      <!-- More cards... -->
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="tw:py-20 tw:px-8 tw:bg-gray-800">
+    <h2 class="tw:text-3xl tw:font-semibold tw:text-center tw:mb-12">About Me</h2>
+    <p class="tw:max-w-3xl tw:mx-auto tw:text-center tw:text-gray-300">
+      I specialize in turning ideas into seamless user interfaces, blending design thinking and front-end development.
+    </p>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="tw:py-20 tw:px-8">
+    <h2 class="tw:text-3xl tw:font-semibold tw:text-center tw:mb-12">Get in Touch</h2>
+    <form class="tw:max-w-lg tw:mx-auto tw:flex tw:flex-col tw:gap-4">
+      <input type="text" placeholder="Your Name" class="tw:p-3 tw:rounded-lg tw:bg-gray-800 tw:text-white">
+      <input type="email" placeholder="Your Email" class="tw:p-3 tw:rounded-lg tw:bg-gray-800 tw:text-white">
+      <textarea placeholder="Your Message" class="tw:p-3 tw:rounded-lg tw:bg-gray-800 tw:text-white tw:h-32"></textarea>
+      <button class="tw:bg-blue-500 tw:py-3 tw:rounded-lg hover:tw:bg-blue-600">Send</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="tw:bg-gray-800 tw:text-center tw:py-4 tw:text-gray-500">
+    © 2025 Susovan Sarkar. All rights reserved.
+  </footer>
+</body>
+
   </body>
 </html>
