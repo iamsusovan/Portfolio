@@ -1,0 +1,35 @@
+@import './base/base';
+
+/* Custom CSS for additional styling */
+.floating-element {
+    will-change: transform;
+}
+
+.hero-gradient {
+    background: linear-gradient(135deg, #2D2B3A 0%, #3D3A4B 100%);
+}
+
+.profile-shadow {
+    box-shadow: 0 25px 50px -12px rgba(168, 85, 247, 0.25);
+}
+
+.laptop-glow {
+    box-shadow: 0 0 50px rgba(168, 85, 247, 0.3);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+
+    .animate-float,
+    .animate-float-delayed,
+    .animate-pulse-slow {
+        animation: none;
+    }
+}
+
+/* Focus styles for accessibility */
+.focus-visible {
+
+    outline: 2px solid #A855F7;
+    outline-offset: 2px;
+}
