@@ -1,0 +1,196 @@
+// ── Navigation ───────────────────────────────────────────────────────
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--nav-height);
+    display: flex;
+    align-items: center;
+    transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
+    border-bottom: 1px solid transparent;
+
+    &.scrolled {
+        background: rgba(10, 10, 15, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-bottom-color: var(--border);
+    }
+
+    &__inner {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: 'Syne', sans-serif;
+        font-weight: 800;
+        font-size: 1.2rem;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &-mark {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: #fff;
+        }
+    }
+
+    &__links {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+        a {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            letter-spacing: 0.01em;
+            position: relative;
+            transition: color 0.2s;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 1px;
+                background: var(--accent);
+                transition: width 0.3s var(--ease-out-expo);
+            }
+
+            &:hover {
+                color: var(--text-primary);
+
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    &__cta {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    &__hire-btn {
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding: 0.5rem 1.25rem;
+        border-radius: 100px;
+        background: var(--accent);
+        color: #fff;
+        transition: background 0.2s, transform 0.2s var(--ease-spring), box-shadow 0.2s;
+
+        &:hover {
+            background: #6D28D9;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        padding: 4px;
+
+        @media (max-width: 768px) {
+            display: flex;
+        }
+
+        span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--text-primary);
+            border-radius: 2px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        &.open {
+            span:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+            }
+
+            span:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+        }
+    }
+
+    // Mobile drawer
+    &__mobile {
+        display: none;
+        position: fixed;
+        inset: 0;
+        top: var(--nav-height);
+        background: rgba(10, 10, 15, 0.97);
+        backdrop-filter: blur(20px);
+        z-index: 99;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+
+        &.open {
+            display: flex;
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        a {
+            font-family: 'Syne', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            transition: color 0.2s;
+
+            &:hover {
+                color: var(--text-primary);
+            }
+        }
+    }
+}

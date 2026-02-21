@@ -1,0 +1,63 @@
+// ── Typography ──────────────────────────────────────────────────────
+// Fluid display headings using clamp()
+
+.display-xl {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+}
+
+.display-lg {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: clamp(2.25rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.display-md {
+    font-family: 'Syne', system-ui, sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.section-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.body-lg {
+    font-size: 1.125rem;
+    line-height: 1.7;
+}
+
+.body-md {
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.body-sm {
+    font-size: 0.875rem;
+    line-height: 1.6;
+}
+
+// Gradient text utility
+.gradient-text {
+    background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text--warm {
+    background: linear-gradient(135deg, #F59E0B 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}

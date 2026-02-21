@@ -3,194 +3,579 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./src/style.css">
-  <title>Vite App</title>
+  <meta name="description"
+    content="Susovan — Senior Frontend Developer & UI/UX Designer specialising in .NET MAUI, ASP.NET MVC, and modern web experiences." />
+  <meta name="theme-color" content="#0A0A0F" />
+  <meta property="og:title" content="Susovan — Developer & Designer" />
+  <meta property="og:description" content="Building digital experiences with precision and craft." />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <!-- Google Fonts: Syne + Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <!-- SCSS compiled via Vite -->
+  <link rel="stylesheet" href="./src/style.scss" />
+  <title>Susovan — Developer & Designer</title>
 </head>
 
-<body class="tw-bg-bg-dark tw-text-white tw-font-primary tw-overflow-x-hidden">
-  <!-- Skip to main content for accessibility -->
+<body style="background:#0A0A0F;color:#F5F5F5;">
+
+  <!-- Skip to main content -->
   <a href="#main-content"
-    class="tw-sr-only focus:tw-not-sr-only focus:tw-absolute focus:tw-top-4 focus:tw-left-4 tw-bg-primary-purple tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-z-50">
+    class="tw-sr-only focus:tw-not-sr-only focus:tw-fixed focus:tw-top-4 focus:tw-left-4 focus:tw-z-50 tw-bg-accent tw-text-white tw-px-4 tw-py-2 tw-rounded-lg">
     Skip to main content
   </a>
 
-  <!-- Header Navigation -->
-  <header role="banner" class="tw-relative tw-z-50">
-    <nav role="navigation" class="tw-container tw-mx-auto tw-px-6 tw-py-6" aria-label="Main navigation">
-      <div class="tw-flex tw-items-center tw-justify-between">
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════════════ -->
+  <header>
+    <nav class="nav" id="main-nav" role="navigation" aria-label="Main navigation">
+      <div class="nav__inner">
         <!-- Logo -->
-        <div class="tw-flex tw-items-center tw-space-x-2">
-          <div
-            class="tw-w-8 tw-h-8 tw-bg-text-coral tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-transform tw-rotate-12"
-            aria-hidden="true">
-            <svg class="tw-w-5 tw-h-5 tw-text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path
-                d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-            </svg>
-          </div>
-          <span class="tw-text-xl tw-font-bold tw-text-white">Webflow</span>
+        <a href="#" class="nav__logo" aria-label="Susovan — home">
+          <div class="nav__logo-mark" aria-hidden="true">SD</div>
+          <span>Susovan</span>
+        </a>
+
+        <!-- Desktop links -->
+        <div class="nav__links" role="list">
+          <a href="#work" role="listitem">Work</a>
+          <a href="#skills" role="listitem">Skills</a>
+          <a href="#process" role="listitem">Process</a>
+          <a href="#contact" role="listitem">Contact</a>
         </div>
 
-        <!-- Desktop Navigation -->
-        <div class="tw-hidden md:tw-flex tw-items-center tw-space-x-8">
-          <a href="#about"
-            class="tw-text-gray-300 hover:tw-text-white tw-transition-colors tw-duration-300 focus-visible">About</a>
-          <a href="#services"
-            class="tw-text-gray-300 hover:tw-text-white tw-transition-colors tw-duration-300 focus-visible">Services</a>
-          <a href="#pricing"
-            class="tw-text-gray-300 hover:tw-text-white tw-transition-colors tw-duration-300 focus-visible">Pricing</a>
-          <a href="#blog"
-            class="tw-text-gray-300 hover:tw-text-white tw-transition-colors tw-duration-300 focus-visible">Blog</a>
-          <a href="#contact"
-            class="tw-bg-gray-700 hover:tw-bg-gray-600 tw-text-white tw-px-4 tw-py-2 tw-rounded-lg tw-transition-colors tw-duration-300 focus-visible"
-            role="button">
-            CONTACT
-          </a>
+        <div class="nav__cta">
+          <a href="#contact" class="nav__hire-btn">Hire Me</a>
+          <!-- Hamburger -->
+          <button class="nav__hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false"
+            aria-controls="mobile-nav">
+            <span></span><span></span><span></span>
+          </button>
         </div>
-
-        <!-- Mobile Menu Button -->
-        <button class="md:tw-hidden tw-text-white focus-visible" aria-label="Open mobile menu" id="mobile-menu-btn">
-          <svg class="tw-w-6 tw-h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
       </div>
     </nav>
+
+    <!-- Mobile nav drawer -->
+    <div class="nav__mobile" id="mobile-nav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+      <a href="#work" onclick="closeMobileNav()">Work</a>
+      <a href="#skills" onclick="closeMobileNav()">Skills</a>
+      <a href="#process" onclick="closeMobileNav()">Process</a>
+      <a href="#contact" onclick="closeMobileNav()">Contact</a>
+      <a href="#contact" class="nav__hire-btn" onclick="closeMobileNav()">Hire Me →</a>
+    </div>
   </header>
 
-  <!-- Main Content -->
-  <main id="main-content" role="main" class="tw-relative tw-min-h-screen hero-gradient">
-    <!-- Hero Section -->
-    <section class="tw-container tw-mx-auto tw-px-6 tw-pt-16 tw-pb-24 tw-relative tw-overflow-hidden"
-      aria-labelledby="hero-heading">
+  <!-- ═══ MAIN CONTENT ═════════════════════════════════════════════ -->
+  <main id="main-content">
 
-      <!-- Left Content -->
-      <div class="tw-max-w-2xl tw-relative tw-z-10">
-        <!-- Small Label -->
-        <div class="tw-inline-flex tw-items-center tw-space-x-2 tw-mb-8">
-          <span class="tw-text-text-coral tw-text-sm tw-font-medium tw-tracking-wide tw-uppercase">
-            Webflow Expert
-          </span>
+    <!-- ── HERO ──────────────────────────────────────────────────── -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+      <!-- Background orbs -->
+      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <!-- Availability badge -->
+        <div class="hero__badge reveal" aria-label="Currently available for projects">
+          <span class="dot" aria-hidden="true"></span>
+          Available for projects · 2025
         </div>
 
-        <!-- Main Heading -->
-        <h1 id="hero-heading" class="tw-text-5xl md:tw-text-7xl tw-font-bold tw-leading-tight tw-mb-6">
-          Making Digital
-          <br>
-          <span class="tw-text-white">Products</span>
+        <!-- Main headline -->
+        <h1 id="hero-heading" class="hero__headline reveal reveal-delay-1">
+          Building<br>
+          <em>Digital</em><br>
+          Experiences.
         </h1>
 
-        <!-- Description -->
-        <p class="tw-text-gray-300 tw-text-lg tw-leading-relaxed tw-mb-8 tw-max-w-lg">
-          Agency provides a full service range including technical skills, design, business understanding.
+        <!-- Sub copy -->
+        <p class="hero__sub reveal reveal-delay-2">
+          Senior developer &amp; UI designer crafting high-performance web
+          applications, mobile apps with .NET MAUI, and memorable interfaces.
         </p>
 
-        <!-- CTA Buttons -->
-        <div class="tw-flex tw-flex-col sm:tw-flex-row tw-items-start tw-gap-4">
-          <a href="#portfolio"
-            class="tw-bg-text-coral hover:tw-bg-opacity-90 tw-text-white tw-px-8 tw-py-4 tw-rounded-lg tw-font-medium tw-transition-all tw-duration-300 tw-transform hover:tw-scale-105 focus-visible"
-            role="button">
-            EXPLORE WORK
+        <!-- CTAs -->
+        <div class="hero__ctas reveal reveal-delay-3">
+          <a href="#work" class="btn-primary" id="hero-cta">
+            View My Work
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </a>
-          <a href="#contact"
-            class="tw-text-gray-300 hover:tw-text-white tw-transition-colors tw-duration-300 focus-visible tw-underline-offset-4 hover:tw-underline">
-            Contact Me
+          <a href="#" class="btn-ghost" id="hero-cv">
+            Download CV
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+              <path d="M7 2v8M3 8l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </a>
         </div>
-      </div>
 
-      <!-- Floating Elements -->
-      <div class="tw-absolute tw-inset-0 tw-pointer-events-none" aria-hidden="true">
-        <!-- Laptop with Purple Background -->
-        <div class="tw-absolute tw-top-20 tw-right-20 tw-w-80 tw-h-64 laptop-glow">
-          <div
-            class="tw-w-full tw-h-full tw-bg-primary-purple tw-rounded-3xl tw-flex tw-items-center tw-justify-center animate-float">
-            <div class="tw-w-48 tw-h-32 tw-bg-gray-800 tw-rounded-lg tw-shadow-2xl tw-transform -tw-rotate-12">
-              <!-- Laptop screen representation -->
-              <div class="tw-w-full tw-h-full tw-bg-gray-900 tw-rounded-lg tw-p-2">
-                <div class="tw-w-full tw-h-full tw-bg-gray-700 tw-rounded"></div>
-              </div>
-            </div>
+        <!-- Stats -->
+        <div class="hero__stats reveal reveal-delay-4" aria-label="Key statistics">
+          <div class="hero__stat">
+            <strong>4+</strong>
+            <span>Years Experience</span>
           </div>
-        </div>
-
-        <!-- Profile Photo -->
-        <div class="tw-absolute tw-top-64 tw-right-32 tw-w-48 tw-h-48 profile-shadow">
-          <div class="tw-w-full tw-h-full tw-bg-accent-yellow tw-rounded-full tw-overflow-hidden animate-float-delayed">
-            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80"
-              alt="Professional headshot of webflow expert developer" class="tw-w-full tw-h-full tw-object-cover"
-              loading="eager">
+          <div class="hero__stat-divider" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <strong>20+</strong>
+            <span>Projects Shipped</span>
           </div>
-        </div>
-
-        <!-- Circular W Logo -->
-        <div class="tw-absolute tw-top-32 tw-right-0 tw-w-20 tw-h-20 animate-pulse-slow">
-          <div class="tw-w-full tw-h-full tw-bg-text-coral tw-rounded-full tw-flex tw-items-center tw-justify-center">
-            <span class="tw-text-white tw-font-bold tw-text-2xl">W</span>
+          <div class="hero__stat-divider" aria-hidden="true"></div>
+          <div class="hero__stat">
+            <strong>8</strong>
+            <span>Tech Stacks</span>
           </div>
-        </div>
-
-        <!-- Abstract Shapes -->
-        <div class="tw-absolute tw-top-48 tw-right-96 tw-w-16 tw-h-16 animate-float">
-          <svg viewBox="0 0 64 64" class="tw-w-full tw-h-full tw-text-gray-600">
-            <circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="10,5" />
-          </svg>
-        </div>
-
-        <!-- Browser Window Mock -->
-        <div class="tw-absolute tw-bottom-32 tw-right-24 tw-w-64 tw-h-40 animate-float-delayed">
-          <div class="tw-w-full tw-h-full tw-bg-white tw-rounded-lg tw-shadow-2xl tw-p-4">
-            <div class="tw-flex tw-items-center tw-space-x-2 tw-mb-3">
-              <div class="tw-w-3 tw-h-3 tw-bg-text-coral tw-rounded-full"></div>
-              <div class="tw-w-3 tw-h-3 tw-bg-accent-yellow tw-rounded-full"></div>
-              <div class="tw-w-3 tw-h-3 tw-bg-green-400 tw-rounded-full"></div>
-            </div>
-            <div class="tw-space-y-2">
-              <div class="tw-h-2 tw-bg-gray-200 tw-rounded tw-w-3/4"></div>
-              <div class="tw-h-2 tw-bg-gray-200 tw-rounded tw-w-1/2"></div>
-              <div class="tw-h-2 tw-bg-gray-200 tw-rounded tw-w-5/6"></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Arrow Decoration -->
-        <div class="tw-absolute tw-bottom-20 tw-right-96 tw-w-24 tw-h-12 animate-float">
-          <svg viewBox="0 0 96 48" class="tw-w-full tw-h-full tw-text-gray-500">
-            <path d="M10 24 Q40 10 90 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-            <path d="M82 18 L90 24 L82 30" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
-          </svg>
         </div>
       </div>
     </section>
+
+    <!-- ── BENTO GRID — WORK ──────────────────────────────────────── -->
+    <section class="section" id="work" aria-labelledby="work-heading">
+      <div class="section-inner">
+        <!-- Section header -->
+        <header class="section-header reveal">
+          <div class="section-header__eyebrow">
+            <span class="line" aria-hidden="true"></span>
+            <span class="section-label">Selected Work</span>
+          </div>
+          <h2 id="work-heading" class="section-header__title">
+            Projects That<br><span class="gradient-text">Matter.</span>
+          </h2>
+          <p class="section-header__desc">
+            A curated grid of my best work across web development, mobile, and UI design.
+          </p>
+        </header>
+
+        <!-- Bento grid -->
+        <div class="bento__grid" role="list">
+
+          <!-- Card 1 — Wide -->
+          <article class="bento__card bento__card--wide reveal" role="listitem" tabindex="0">
+            <div class="bento__card-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 11L11 3M11 3H5M11 3v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="bento__card-tag">🌐 Web Dev</div>
+            <div class="bento__card-img-wrap">
+              <div class="bento__card-icon">
+                <span
+                  style="font-size:3rem;display:flex;align-items:center;justify-content:center;height:100%;background:linear-gradient(135deg,#0A0A0F,#1A1A26);">🏗️</span>
+              </div>
+            </div>
+            <h3 class="bento__card-title">Enterprise ASP.NET Dashboard</h3>
+            <p class="bento__card-desc">Real-time analytics dashboard with role-based access control, complex data
+              grids, and responsive design built on ASP.NET MVC.</p>
+            <div class="bento__card-tags" aria-label="Technologies used">
+              <span class="bento__card-tech">ASP.NET MVC</span>
+              <span class="bento__card-tech">SCSS</span>
+              <span class="bento__card-tech">SQL Server</span>
+              <span class="bento__card-tech">SignalR</span>
+            </div>
+          </article>
+
+          <!-- Card 2 — Tall -->
+          <article class="bento__card bento__card--tall reveal reveal-delay-1" role="listitem" tabindex="0">
+            <div class="bento__card-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 11L11 3M11 3H5M11 3v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="bento__card-tag"
+              style="background:rgba(236,72,153,.12);border-color:rgba(236,72,153,.25);color:#F9A8D4;">📱 .NET MAUI
+            </div>
+            <div class="bento__card-img-wrap" style="height:260px;">
+              <div class="bento__card-icon" style="height:100%;background:linear-gradient(160deg,#0A0A0F,#1a0a26);">📱
+              </div>
+            </div>
+            <h3 class="bento__card-title">HealthTrack Mobile App</h3>
+            <p class="bento__card-desc">Cross-platform health & fitness tracker with biometric sync, custom charting,
+              and offline-first architecture.</p>
+            <div class="bento__card-tags">
+              <span class="bento__card-tech">.NET MAUI</span>
+              <span class="bento__card-tech">C#</span>
+              <span class="bento__card-tech">SQLite</span>
+            </div>
+          </article>
+
+          <!-- Card 3 — Small -->
+          <article class="bento__card bento__card--sm reveal reveal-delay-2" role="listitem" tabindex="0">
+            <div class="bento__card-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 11L11 3M11 3H5M11 3v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="bento__card-tag"
+              style="background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.25);color:#FCD34D;">🎨 UI/UX</div>
+            <div style="font-size:3rem;padding:1.5rem 0;">🎨</div>
+            <h3 class="bento__card-title">SaaS Design System</h3>
+            <p class="bento__card-desc">Component library of 60+ elements built in Figma and shipped as a reusable SCSS
+              token system.</p>
+            <div class="bento__card-tags">
+              <span class="bento__card-tech">Figma</span>
+              <span class="bento__card-tech">SCSS</span>
+            </div>
+          </article>
+
+          <!-- Card 4 — Half -->
+          <article class="bento__card bento__card--half reveal reveal-delay-1" role="listitem" tabindex="0">
+            <div class="bento__card-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 11L11 3M11 3H5M11 3v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="bento__card-tag">☁️ Cloud</div>
+            <div style="font-size:2.5rem;padding:1rem 0;">☁️</div>
+            <h3 class="bento__card-title">Azure DevOps Pipeline</h3>
+            <p class="bento__card-desc">Automated CI/CD pipeline with infrastructure-as-code, staging environments, and
+              zero-downtime deployments.</p>
+            <div class="bento__card-tags">
+              <span class="bento__card-tech">Azure</span>
+              <span class="bento__card-tech">Docker</span>
+              <span class="bento__card-tech">YAML</span>
+            </div>
+          </article>
+
+          <!-- Card 5 — Half -->
+          <article class="bento__card bento__card--half reveal reveal-delay-2" role="listitem" tabindex="0">
+            <div class="bento__card-arrow" aria-hidden="true">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M3 11L11 3M11 3H5M11 3v6" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="bento__card-tag"
+              style="background:rgba(236,72,153,.12);border-color:rgba(236,72,153,.25);color:#F9A8D4;">🛒 E-Commerce
+            </div>
+            <div style="font-size:2.5rem;padding:1rem 0;">🛒</div>
+            <h3 class="bento__card-title">Multi-Vendor Marketplace</h3>
+            <p class="bento__card-desc">Full-stack e-commerce platform with payment integration, inventory management
+              and vendor dashboards.</p>
+            <div class="bento__card-tags">
+              <span class="bento__card-tech">ASP.NET</span>
+              <span class="bento__card-tech">Stripe</span>
+              <span class="bento__card-tech">Redis</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ── SKILLS MARQUEE ─────────────────────────────────────────── -->
+    <section class="section" id="skills" aria-labelledby="skills-heading">
+      <div class="section-inner">
+        <header class="section-header reveal"
+          style="text-align:center;max-width:600px;margin:0 auto clamp(2.5rem,5vw,4rem);">
+          <div class="section-header__eyebrow" style="justify-content:center;">
+            <span class="line" aria-hidden="true"></span>
+            <span class="section-label">Expertise</span>
+            <span class="line" aria-hidden="true"></span>
+          </div>
+          <h2 id="skills-heading" class="section-header__title">The Full Stack</h2>
+          <p class="section-header__desc" style="margin:1rem auto 0;">Hover to pause the tape.</p>
+        </header>
+      </div>
+
+      <!-- Row 1 — forwards -->
+      <div class="marquee__row" aria-label="UI/UX and design skills">
+        <div class="marquee__wrapper">
+          <div class="marquee__track marquee__track--fwd" aria-hidden="true">
+            <div class="marquee__inner">
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🎨</span> UI/UX Design</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🖌️</span> Figma</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">✨</span> Design Systems</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🔬</span> User Research</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">📐</span> Wireframing</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🎭</span> Prototyping</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">💎</span> Adobe XD</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🌈</span> Motion Design</span>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="marquee__inner" aria-hidden="true">
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🎨</span> UI/UX Design</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🖌️</span> Figma</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">✨</span> Design Systems</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🔬</span> User Research</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">📐</span> Wireframing</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🎭</span> Prototyping</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">💎</span> Adobe XD</span>
+              <span class="marquee__pill marquee__pill--design"><span class="icon">🌈</span> Motion Design</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Row 2 — reverse -->
+      <div class="marquee__row" style="margin-top:.75rem;" aria-label="Tech and development skills">
+        <div class="marquee__wrapper">
+          <div class="marquee__track marquee__track--rev" aria-hidden="true">
+            <div class="marquee__inner">
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">⚡</span> ASP.NET MVC</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">📱</span> .NET MAUI</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🔷</span> C#</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🗄️</span> SQL Server</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🌐</span> REST APIs</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">☁️</span> Azure</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🐳</span> Docker</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">💅</span> SCSS / CSS</span>
+            </div>
+            <div class="marquee__inner" aria-hidden="true">
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">⚡</span> ASP.NET MVC</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">📱</span> .NET MAUI</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🔷</span> C#</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🗄️</span> SQL Server</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🌐</span> REST APIs</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">☁️</span> Azure</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">🐳</span> Docker</span>
+              <span class="marquee__pill marquee__pill--tech"><span class="icon">💅</span> SCSS / CSS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ── PROCESS TIMELINE ───────────────────────────────────────── -->
+    <section class="section" id="process" aria-labelledby="process-heading">
+      <div class="section-inner">
+        <header class="section-header reveal"
+          style="text-align:center;max-width:600px;margin:0 auto clamp(2.5rem,5vw,4rem);">
+          <div class="section-header__eyebrow" style="justify-content:center;">
+            <span class="line" aria-hidden="true"></span>
+            <span class="section-label">How I Work</span>
+            <span class="line" aria-hidden="true"></span>
+          </div>
+          <h2 id="process-heading" class="section-header__title">
+            From Idea to<br><span class="gradient-text--warm">Deployment.</span>
+          </h2>
+          <p class="section-header__desc" style="margin:1rem auto 0;">My battle-tested process for delivering quality,
+            on time.</p>
+        </header>
+
+        <div class="process__list" role="list">
+          <!-- Animated line -->
+          <div class="process__line" id="process-line" aria-hidden="true"></div>
+
+          <!-- Step 1 -->
+          <div class="process__item reveal" role="listitem">
+            <div class="process__content">
+              <div class="process__card">
+                <p class="process__step-num">01</p>
+                <h3 class="process__step-title">Discovery & Research</h3>
+                <p class="process__step-desc">Deep-dive into your goals, users, and competitors. Defining success
+                  metrics before a single pixel is placed.</p>
+                <div class="process__step-tools">
+                  <span>Stakeholder Interviews</span><span>Competitor Analysis</span><span>User Personas</span>
+                </div>
+              </div>
+            </div>
+            <div class="process__node">
+              <div class="process__step-circle">01</div>
+            </div>
+            <div class="process__spacer"></div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process__item reveal reveal-delay-1" role="listitem">
+            <div class="process__spacer"></div>
+            <div class="process__node">
+              <div class="process__step-circle">02</div>
+            </div>
+            <div class="process__content">
+              <div class="process__card">
+                <p class="process__step-num">02</p>
+                <h3 class="process__step-title">Wireframing & Prototyping</h3>
+                <p class="process__step-desc">Lo-fi sketches to hi-fi interactive prototypes, validated with real users
+                  before development begins.</p>
+                <div class="process__step-tools">
+                  <span>Figma</span><span>User Testing</span><span>Iteration</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process__item reveal reveal-delay-2" role="listitem">
+            <div class="process__content">
+              <div class="process__card">
+                <p class="process__step-num">03</p>
+                <h3 class="process__step-title">Visual Design</h3>
+                <p class="process__step-desc">Translating wireframes into polished interfaces. Typography, colour,
+                  motion — every detail intentional.</p>
+                <div class="process__step-tools">
+                  <span>Design Tokens</span><span>Component Library</span><span>Accessibility</span>
+                </div>
+              </div>
+            </div>
+            <div class="process__node">
+              <div class="process__step-circle">03</div>
+            </div>
+            <div class="process__spacer"></div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process__item reveal reveal-delay-1" role="listitem">
+            <div class="process__spacer"></div>
+            <div class="process__node">
+              <div class="process__step-circle">04</div>
+            </div>
+            <div class="process__content">
+              <div class="process__card">
+                <p class="process__step-num">04</p>
+                <h3 class="process__step-title">Development</h3>
+                <p class="process__step-desc">Clean, modular code that matches the design pixel-perfectly. Performance
+                  and maintainability by default.</p>
+                <div class="process__step-tools">
+                  <span>ASP.NET MVC</span><span>.NET MAUI</span><span>SCSS</span><span>REST APIs</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process__item reveal reveal-delay-2" role="listitem">
+            <div class="process__content">
+              <div class="process__card">
+                <p class="process__step-num">05</p>
+                <h3 class="process__step-title">Deploy & Iterate</h3>
+                <p class="process__step-desc">Automated pipelines, staging environments, and post-launch monitoring.
+                  Ship with confidence, improve with data.</p>
+                <div class="process__step-tools">
+                  <span>Azure</span><span>Docker</span><span>CI/CD</span><span>Analytics</span>
+                </div>
+              </div>
+            </div>
+            <div class="process__node">
+              <div class="process__step-circle">05</div>
+            </div>
+            <div class="process__spacer"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ── CONTACT ────────────────────────────────────────────────── -->
+    <section class="section" id="contact" aria-labelledby="contact-heading">
+      <div class="section-inner">
+        <div class="contact__inner">
+          <!-- Left: info -->
+          <div class="contact__info reveal">
+            <div class="contact__availability" aria-label="Availability status">
+              <span class="dot" aria-hidden="true"></span>
+              Open to new opportunities
+            </div>
+            <h2 id="contact-heading" class="contact__tagline">
+              Let's build<br>something<br><span class="gradient-text">great together.</span>
+            </h2>
+            <p class="contact__sub">
+              Whether you have a full project or just an idea — I'd love to hear about it. Let's talk.
+            </p>
+            <!-- Social links -->
+            <div class="contact__socials" aria-label="Social media links">
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
+                </svg>
+              </a>
+              <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </a>
+              <a href="mailto:hello@susovan.dev" aria-label="Send email">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </a>
+              <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer" aria-label="Dribbble profile">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                  <path
+                    d="M12 24C5.385 24 0 18.615 0 12S5.385 0 12 0s12 5.385 12 12-5.385 12-12 12zm10.12-10.358c-.35-.11-3.17-.953-6.384-.438 1.34 3.684 1.887 6.684 1.992 7.308 2.3-1.555 3.936-4.02 4.395-6.87zm-6.115 7.808c-.153-.9-.75-4.032-2.19-7.77l-.066.02c-5.79 2.015-7.86 6.025-8.048 6.39 1.73 1.35 3.92 2.165 6.298 2.165 1.42 0 2.77-.29 4.006-.805zm-9.945-2.81c.24-.52 3.164-5.986 8.376-7.67.106-.034.213-.067.322-.097-.211-.476-.44-.95-.681-1.418-5.072 1.52-9.993 1.465-10.43 1.452-.002.082-.004.164-.004.247 0 2.67.97 5.11 2.572 6.986zm-2.29-9.283c.445.008 4.695.019 9.452-1.243-1.69-3.004-3.51-5.532-3.79-5.899-2.697 1.274-4.73 3.56-5.662 6.142zm10.177-6.897c.299.388 2.132 2.918 3.805 5.99 3.633-1.362 5.17-3.432 5.354-3.69-1.693-1.508-3.937-2.43-6.39-2.43-.935 0-1.836.13-2.69.37zm7.343 5.265c-.226.317-1.92 2.51-5.705 4.058.232.48.453.97.657 1.465.077.18.15.362.22.545 3.407-.43 6.795.26 7.14.33-.02-2.34-.87-4.49-2.312-6.398z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <div class="contact__form-card reveal reveal-delay-2">
+            <form class="contact__form" id="contact-form" novalidate>
+              <div class="contact__form-row">
+                <div class="contact__field">
+                  <label for="contact-name">Name</label>
+                  <input type="text" id="contact-name" name="name" placeholder="Your name" required
+                    autocomplete="name" />
+                </div>
+                <div class="contact__field">
+                  <label for="contact-email">Email</label>
+                  <input type="email" id="contact-email" name="email" placeholder="your@email.com" required
+                    autocomplete="email" />
+                </div>
+              </div>
+              <div class="contact__field contact__field--select">
+                <label for="contact-type">Project Type</label>
+                <select id="contact-type" name="project_type">
+                  <option value="" disabled selected>Select a category</option>
+                  <option value="web">Web Application</option>
+                  <option value="maui">Mobile App (.NET MAUI)</option>
+                  <option value="design">UI/UX Design</option>
+                  <option value="consulting">Consulting</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="contact__field">
+                <label for="contact-message">Message</label>
+                <textarea id="contact-message" name="message" placeholder="Tell me about your project…"
+                  required></textarea>
+              </div>
+              <button type="submit" class="contact__submit" id="contact-submit">
+                Send Message →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <script>
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  <!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <p class="footer__copy">
+        &copy; 2025 <span>Susovan Dev</span>. Crafted with care.
+      </p>
+      <a href="#hero" class="footer__back" aria-label="Back to top">
+        Back to top
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+  </footer>
 
-    mobileMenuBtn?.addEventListener('click', () => {
-      console.log('Mobile menu clicked');
-    });
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <!-- Main JS -->
+  <script type="module" src="./src/main.js"></script>
 
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    window.addEventListener('load', () => {
-      document.body.classList.add('loaded');
-    });
-  </script>
 </body>
-
 
 </html>
