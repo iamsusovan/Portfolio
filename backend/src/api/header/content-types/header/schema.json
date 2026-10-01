@@ -1,0 +1,50 @@
+{
+  "kind": "singleType",
+  "collectionName": "headers",
+  "info": {
+    "singularName": "header",
+    "pluralName": "headers",
+    "displayName": "Header"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Logo": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Tittle": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "logoUrl": {
+      "type": "string"
+    },
+    "profileImageUrl": {
+      "type": "string"
+    },
+    "navbarItems": {
+      "type": "component",
+      "component": "shared.header-items",
+      "repeatable": true
+    },
+    "ctaButton": {
+      "type": "component",
+      "component": "shared.header-items",
+      "repeatable": false
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+    "kind":  "singleType",
+    "collectionName":  "footers",
+    "info":  {
+                 "singularName":  "footer",
+                 "pluralName":  "footers",
+                 "displayName":  "Footer"
+             },
+    "options":  {
+                    "draftAndPublish":  true
+                },
+    "pluginOptions":  {
+
+                      },
+    "attributes":  {
+                       "twitterUrl":  {
+                                          "type":  "string"
+                                      },
+                       "name":  {
+                                    "type":  "string"
+                                },
+                       "githubUrl":  {
+                                         "type":  "string"
+                                     },
+                       "tagline":  {
+                                       "type":  "string"
+                                   },
+                       "dribbbleUrl":  {
+                                           "type":  "string"
+                                       }
+                   }
+}

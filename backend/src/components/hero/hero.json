@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_hero_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "rocket"
+  },
+  "options": {},
+  "attributes": {
+    "tittle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

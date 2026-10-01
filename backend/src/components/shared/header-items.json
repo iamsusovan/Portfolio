@@ -1,0 +1,26 @@
+{
+    "collectionName":  "components_shared_header_items",
+    "info":  {
+                 "displayName":  "HeaderItems"
+             },
+    "options":  {
+
+                },
+    "attributes":  {
+                       "label":  {
+                                     "type":  "string"
+                                 },
+                       "id_name":  {
+                                       "type":  "string"
+                                   },
+                       "text":  {
+                                    "type":  "string"
+                                },
+                       "href":  {
+                                    "type":  "string"
+                                }
+                   },
+    "config":  {
+
+               }
+}

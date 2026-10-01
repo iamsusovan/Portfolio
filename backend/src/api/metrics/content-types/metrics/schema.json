@@ -1,0 +1,50 @@
+{
+    "kind":  "singleType",
+    "collectionName":  "metrics",
+    "info":  {
+                 "singularName":  "metrics",
+                 "pluralName":  "metricses",
+                 "displayName":  "Metrics"
+             },
+    "options":  {
+                    "draftAndPublish":  false
+                },
+    "attributes":  {
+                       "stat1Value":  {
+                                          "type":  "string"
+                                      },
+                       "stat1Label":  {
+                                          "type":  "string"
+                                      },
+                       "stat1Desc":  {
+                                         "type":  "string"
+                                     },
+                       "stat2Value":  {
+                                          "type":  "string"
+                                      },
+                       "stat2Label":  {
+                                          "type":  "string"
+                                      },
+                       "stat2Desc":  {
+                                         "type":  "string"
+                                     },
+                       "stat3Value":  {
+                                          "type":  "string"
+                                      },
+                       "stat3Label":  {
+                                          "type":  "string"
+                                      },
+                       "stat3Desc":  {
+                                         "type":  "string"
+                                     },
+                       "stat4Value":  {
+                                          "type":  "string"
+                                      },
+                       "stat4Label":  {
+                                          "type":  "string"
+                                      },
+                       "stat4Desc":  {
+                                         "type":  "string"
+                                     }
+                   }
+}
